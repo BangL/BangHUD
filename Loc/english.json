@@ -15,5 +15,17 @@
 	"bars_alpha_desc": "Transparency of the bars",
 
 	"background_alpha": "Background alpha",
-	"background_alpha_desc": "Transparency of the background line behind the bars"
+	"background_alpha_desc": "Transparency of the background line behind the bars",
+
+	"hide_in_stealth": "Hide in stealth",
+	"hide_in_stealth_desc": "Hide the arcs when in stealth",
+
+	"always_show_when_hurt": "Always show when hurt",
+	"always_show_when_hurt_desc": "Always show the arcs when hurt, even if in stealth\n(does nothing when the above option is disabled)",
+
+	"hide_when_full": "Hide when full",
+	"hide_when_full_desc": "Hide the arcs when armor and health is full",
+
+	"fade_out_time": "Fade out time",
+	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings"
 }

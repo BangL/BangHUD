@@ -9,16 +9,20 @@
 			"id": "swap_bars",
 			"title": "swap_bars",
 			"description": "swap_bars_desc",
-			"callback": "callback_swap_bars",
+			"callback": "banghud_menu_callback",
 			"value": "swap_bars",
 			"default_value": false
+		},
+		{
+			"type": "divider",
+			"size": 16
 		},
 		{
 			"type": "slider",
 			"id": "bars_scale",
 			"title": "bars_scale",
 			"description": "bars_scale_desc",
-			"callback": "callback_bars_scale",
+			"callback": "banghud_menu_callback",
 			"value": "bars_scale",
 			"max": 2,
 			"min": 0.1,
@@ -30,7 +34,7 @@
 			"id": "center_margin",
 			"title": "center_margin",
 			"description": "center_margin_desc",
-			"callback": "callback_center_margin",
+			"callback": "banghud_menu_callback",
 			"value": "center_margin",
 			"max": 1000,
 			"min": 0,
@@ -38,11 +42,15 @@
 			"default_value": 100
 		},
 		{
+			"type": "divider",
+			"size": 16
+		},
+		{
 			"type": "slider",
 			"id": "bars_alpha",
 			"title": "bars_alpha",
 			"description": "bars_alpha_desc",
-			"callback": "callback_bars_alpha",
+			"callback": "banghud_menu_callback",
 			"value": "bars_alpha",
 			"max": 1,
 			"min": 0,
@@ -54,12 +62,55 @@
 			"id": "background_alpha",
 			"title": "background_alpha",
 			"description": "background_alpha_desc",
-			"callback": "callback_background_alpha",
+			"callback": "banghud_menu_callback",
 			"value": "background_alpha",
 			"max": 1,
 			"min": 0,
 			"step": 0.01,
 			"default_value": 0.3
+		},
+		{
+			"type": "divider",
+			"size": 16
+		},
+		{
+			"type": "toggle",
+			"id": "hide_in_stealth",
+			"title": "hide_in_stealth",
+			"description": "hide_in_stealth_desc",
+			"callback": "banghud_menu_callback",
+			"value": "hide_in_stealth",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "always_show_when_hurt",
+			"title": "always_show_when_hurt",
+			"description": "always_show_when_hurt_desc",
+			"callback": "banghud_menu_callback",
+			"value": "always_show_when_hurt",
+			"default_value": true
+		},
+		{
+			"type": "toggle",
+			"id": "hide_when_full",
+			"title": "hide_when_full",
+			"description": "hide_when_full_desc",
+			"callback": "banghud_menu_callback",
+			"value": "hide_when_full",
+			"default_value": true
+		},
+		{
+			"type": "slider",
+			"id": "fade_out_time",
+			"title": "fade_out_time",
+			"description": "fade_out_time_desc",
+			"callback": "banghud_menu_callback",
+			"value": "fade_out_time",
+			"max": 10,
+			"min": 0,
+			"step": 0.1,
+			"default_value": 0.5
 		}
 	]
 }

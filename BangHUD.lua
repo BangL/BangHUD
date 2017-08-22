@@ -9,7 +9,8 @@ if not BangHUD.setup then
 	BangHUD._hook_files = {
 		["lib/managers/menumanager"] = "MenuManager",
 		["lib/managers/localizationmanager"] = "LocalizationManager",
-		["lib/managers/hudmanagerpd2"] = "HUDManagerPD2"
+		["lib/managers/hudmanagerpd2"] = "HUDManagerPD2",
+		["lib/managers/group_ai_states/groupaistatebase"] = "GroupAIStateBase"
 	}
 
 	function BangHUD:Save()

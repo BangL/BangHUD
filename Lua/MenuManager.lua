@@ -1,24 +1,13 @@
 
 Hooks:Add("MenuManagerInitialize", "MenuManagerInitialize_BangHUD", function(menu_manager)
 
-	function MenuCallbackHandler:callback_swap_bars(item)
-		BangHUD._data.swap_bars = (item:value() == "on")
-		BangHUD:OptionChanged()
-	end
-	function MenuCallbackHandler:callback_bars_scale(item)
-		BangHUD._data.bars_scale = item:value()
-		BangHUD:OptionChanged()
-	end
-	function MenuCallbackHandler:callback_center_margin(item)
-		BangHUD._data.center_margin = item:value()
-		BangHUD:OptionChanged()
-	end
-	function MenuCallbackHandler:callback_bars_alpha(item)
-		BangHUD._data.bars_alpha = item:value()
-		BangHUD:OptionChanged()
-	end
-	function MenuCallbackHandler:callback_background_alpha(item)
-		BangHUD._data.background_alpha = item:value()
+	function MenuCallbackHandler:banghud_menu_callback(item)
+		local optionName = item._parameters.name
+		if item._type == "toggle" then
+			BangHUD._data[optionName] = (item:value() == "on")
+		else
+			BangHUD._data[optionName] = item:value()
+		end
 		BangHUD:OptionChanged()
 	end
 
