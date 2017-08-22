@@ -67,7 +67,7 @@ function HUDBangHUD:update()
 	local scale = BangHUD:GetOption("bars_scale") * 0.3
 	local margin = BangHUD:GetOption("center_margin")
 	local alpha = BangHUD:GetOption("bars_alpha")
-	local bg_alpha = BangHUD:GetOption("backgorund_alpha")
+	local bg_alpha = BangHUD:GetOption("background_alpha")
 
 	self._armor_panel:set_size(512 * scale, 512 * scale)
 	self._health_panel:set_size(512 * scale, 512 * scale)

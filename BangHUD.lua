@@ -5,7 +5,7 @@ if not BangHUD.setup then
 	BangHUD._path = ModPath
 	BangHUD._lua_path = ModPath .. "Lua/"
 	BangHUD._data_path = SavePath .. "BangHUD.json"
-	BangHUD._data = {} 
+	BangHUD._data = {}
 	BangHUD._hook_files = {
 		["lib/managers/menumanager"] = "MenuManager",
 		["lib/managers/localizationmanager"] = "LocalizationManager",
@@ -101,7 +101,7 @@ if not BangHUD.setup then
 	for _, mod in pairs(LuaModManager.Mods) do
 		local info = mod.definition
 		if info.name == "BangHUD" then
-			updates = info.updates or {}
+			local updates = info.updates or {}
 			for _, update in pairs(updates) do
 				if update.install_folder and update.install_dir then
 					BangHUD:InitExtraUpdate(mod.definition, mod.path, update)

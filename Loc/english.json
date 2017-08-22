@@ -14,6 +14,6 @@
 	"bars_alpha": "Bars alpha",
 	"bars_alpha_desc": "Transparency of the bars",
 
-	"backgorund_alpha": "Background alpha",
-	"backgorund_alpha_desc": "Transparency of the background line behind the bars"
+	"background_alpha": "Background alpha",
+	"background_alpha_desc": "Transparency of the background line behind the bars"
 }
