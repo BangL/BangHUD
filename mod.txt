@@ -1,0 +1,25 @@
+{
+	"name": "BangHUD",
+	"description": "Shows player health and armor as arcs in the middle of the screen",
+	"author": "BangL (Code), Takku (Textures)",
+	"version": "0.2",
+	"priority": 0,
+	"updates" : [
+		{
+			"revision" : 2,
+			"identifier" : "banghud"
+		},
+		{
+			"revision" : "revision.txt",
+			"identifier" : "banghud_assets",
+			"install_dir" : "assets/mod_overrides/",
+			"install_folder" : "BangHUD-Assets",
+			"display_name" : "BangHUD-Assets"
+		}
+	],
+	"hooks": [
+		{"script_path": "BangHUD.lua", "hook_id": "lib/managers/menumanager"},
+		{"script_path": "BangHUD.lua", "hook_id": "lib/managers/localizationmanager"},
+		{"script_path": "BangHUD.lua", "hook_id": "lib/managers/hudmanagerpd2"}
+	]
+}

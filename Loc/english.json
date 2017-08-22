@@ -1,0 +1,19 @@
+{
+	"BangHUD_options": "BangHUD options",
+	"BangHUD_options_desc": "",
+
+	"swap_bars": "Swap bars",
+	"swap_bars_desc": "Swap bars",
+
+	"bars_scale": "Bars scale",
+	"bars_scale_desc": "Scale of the complete bars hud",
+
+	"center_margin": "Center margin",
+	"center_margin_desc": "Center space between the bars",
+
+	"bars_alpha": "Bars alpha",
+	"bars_alpha_desc": "Transparency of the bars",
+
+	"backgorund_alpha": "Background alpha",
+	"backgorund_alpha_desc": "Transparency of the background line behind the bars"
+}
