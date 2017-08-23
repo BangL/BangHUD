@@ -35,8 +35,11 @@
 	"fade_out_time": "Fade out time",
 	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings",
 
-	"show_armor_timer": "Show armor timer",
-	"show_armor_timer_desc": "Show armor regeneration cool down timer on bottom of the armor arc",
+	"show_armor_timer": "Show armor timer (Regular)",
+	"show_armor_timer_desc": "Show regular armor regeneration cool down timer on bottom of the armor arc",
+
+	"show_anarchist_timer": "Show armor timer (Anarchist)",
+	"show_anarchist_timer_desc": "Show anarchist armor regeneration cool down timer on bottom of the armor arc",
 
 	"swan_song_intensity": "Swan Song effect intensity",
 	"swan_song_intensity_desc": "Set the intensity of the blue swan song effect",

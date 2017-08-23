@@ -144,6 +144,15 @@
 			"default_value": true
 		},
 		{
+			"type": "toggle",
+			"id": "show_anarchist_timer",
+			"title": "show_anarchist_timer",
+			"description": "show_anarchist_timer_desc",
+			"callback": "banghud_menu_callback",
+			"value": "show_anarchist_timer",
+			"default_value": true
+		},
+		{
 			"type": "divider",
 			"size": 16
 		},

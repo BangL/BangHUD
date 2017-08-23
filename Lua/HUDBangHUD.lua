@@ -128,6 +128,8 @@ function HUDBangHUD:update()
 
 	self:_update_health()
 	self:_update_armor()
+
+	self:update_armor_timer(0)
 end
 
 function HUDBangHUD:_health_percentage()
@@ -163,7 +165,7 @@ function HUDBangHUD:update_armor_timer(t)
 	if t and t > 0 then
 		t = string.format("%.1f", round(t, 1)) .. "s"
 		self._armor_timer:set_text(t)
-		self._armor_timer:set_visible(BangHUD:GetOption("show_armor_timer"))
+		self._armor_timer:set_visible(true)
 	elseif self._armor_timer:visible() then
 		self._armor_timer:set_visible(false)
 	end
