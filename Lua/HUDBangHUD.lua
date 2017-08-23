@@ -77,9 +77,6 @@ function HUDBangHUD:init(hud)
 		layer = 2
 	})
 
-	self.health_value = 1
-	self.armor_value = 1
-
 	self:update()
 end
 
@@ -131,16 +128,34 @@ function HUDBangHUD:update()
 
 	self:_update_health()
 	self:_update_armor()
-	self:update_visbility()
+end
+
+function HUDBangHUD:_health_percentage()
+	local value = 1
+	if self._health_data then
+		value = self._health_data.current / self._health_data.total
+		if BangHUD:GetOption("frenzy_relative") then
+			value = self._health_data.current / (self._health_data.total * self:_max_health_reduction())
+		end
+	end
+	return math.clamp(value, 0, 1)
 end
 
 function HUDBangHUD:_update_health()
-	self._health_arc:set_color(Color(1, 0.5 + self.health_value * 0.5, 1, 1))
+	self._health_arc:set_color(Color(1, 0.5 + self:_health_percentage() * 0.5, 1, 1))
 	self:update_visbility()
 end
 
+function HUDBangHUD:_armor_percentage()
+	local value = 1
+	if self._armor_data then
+		value = self._armor_data.current / self._armor_data.total
+	end
+	return math.clamp(value, 0, 1)
+end
+
 function HUDBangHUD:_update_armor()
-	self._armor_arc:set_color(Color(1, 0.5 + self.armor_value * 0.5, 1, 1))
+	self._armor_arc:set_color(Color(1, 0.5 + self:_armor_percentage() * 0.5, 1, 1))
 	self:update_visbility()
 end
 
@@ -156,10 +171,11 @@ end
 
 function HUDBangHUD:update_visbility()
 	local hide = BangHUD:GetOption("hide_in_stealth") and managers.groupai and managers.groupai:state() and managers.groupai:state():whisper_mode()
-	if not hide and BangHUD:GetOption("hide_when_full") and self.health_value >= 0.99 and self.armor_value >= 0.99 then
+	local hide_at_frenzy_cap = BangHUD:GetOption("hide_at_frenzy_cap") and not BangHUD:GetOption("frenzy_relative")
+	if not hide and BangHUD:GetOption("hide_when_full") and (self:_health_percentage() >= (hide_at_frenzy_cap and (self:_max_health_reduction() - 0.01) or 0.99)) and self:_armor_percentage() >= 0.99 then
 		hide = true
 	end
-	if hide and BangHUD:GetOption("always_show_when_hurt") and (self.health_value < 0.99 or self.armor_value < 0.99) then
+	if hide and BangHUD:GetOption("always_show_when_hurt") and ((self:_health_percentage() < (hide_at_frenzy_cap and (self:_max_health_reduction() - 0.01) or 0.99)) or self:_armor_percentage() < 0.99) then
 		hide = false
 	end
 	if not hide then
@@ -182,12 +198,16 @@ function HUDBangHUD:_fade_out_animation(panel)
 	panel:set_alpha(0)
 end
 
-function HUDBangHUD:set_health(value)
-	self.health_value = value
+function HUDBangHUD:set_health(data)
+	self._health_data = data
 	self:_update_health()
 end
 
-function HUDBangHUD:set_armor(value)
-	self.armor_value = value
+function HUDBangHUD:set_armor(data)
+	self._armor_data = data
 	self:_update_armor()
+end
+
+function HUDBangHUD:_max_health_reduction()
+	return managers.player and managers.player:upgrade_value("player", "max_health_reduction", 1) or 1
 end

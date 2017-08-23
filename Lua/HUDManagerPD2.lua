@@ -14,14 +14,14 @@ end
 function HUDManager:set_teammate_health(i, data, ...)
 	set_teammate_health_original(self, i, data, ...)
 	if i == HUDManager.PLAYER_PANEL then
-		self._hud_banghud:set_health(data.current / data.total)
+		self._hud_banghud:set_health(data)
 	end
 end
 
 function HUDManager:set_teammate_armor(i, data, ...)
 	set_teammate_armor_original(self, i, data, ...)
 	if i == HUDManager.PLAYER_PANEL then
-		self._hud_banghud:set_armor(data.current / data.total)
+		self._hud_banghud:set_armor(data)
 	end
 end
 
@@ -48,6 +48,7 @@ function HUDManager:set_teammate_custom_radial(i, data, ...)
 	if i == HUDManager.PLAYER_PANEL and alive(swan_song_left) then
 		if data.current < data.total and data.current > 0 then
 			swan_song_left:set_visible(true)
+			swan_song_left:set_alpha(BangHUD:GetOption("swan_song_intensity"))
 			local hudinfo = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2)
 			swan_song_left:animate(hudinfo.flash_icon, 4000000000)
 		else
@@ -82,6 +83,7 @@ function HUDManager:set_teammate_ability_radial(i, data, ...)
 	if i == HUDManager.PLAYER_PANEL and alive(chico_injector_left) then
 		if data.current < data.total and data.current > 0 then
 			chico_injector_left:set_visible(true)
+			chico_injector_left:set_alpha(BangHUD:GetOption("chico_injector_intensity"))
 			local hudinfo = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2)
 			chico_injector_left:animate(hudinfo.flash_icon, 4000000000)
 		else

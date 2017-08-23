@@ -7,6 +7,10 @@
 	"hide_in_stealth": true,
 	"always_show_when_hurt": true,
 	"hide_when_full": true,
+	"frenzy_relative": true,
+	"hide_at_frenzy_cap": true,
 	"fade_out_time": 0.5,
-	"show_armor_timer": true
+	"show_armor_timer": true,
+	"swan_song_intensity": 1,
+	"chico_injector_intensity": 1
 }

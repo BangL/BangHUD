@@ -26,9 +26,21 @@
 	"hide_when_full": "Hide when full",
 	"hide_when_full_desc": "Hide the arcs when armor and health is full",
 
+	"frenzy_relative": "Frenzy relative",
+	"frenzy_relative_desc": "Show the 30% of frenzy as 100% when frenzy is skilled",
+
+	"hide_at_frenzy_cap": "Hide at frenzy cap",
+	"hide_at_frenzy_cap_desc": "Already hide at 30% when frenzy is skilled\n(does nothing when the above option is enabled)",
+
 	"fade_out_time": "Fade out time",
 	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings",
 
 	"show_armor_timer": "Show armor timer",
-	"show_armor_timer_desc": "Show armor regeneration cool down timer on bottom of the armor arc"
+	"show_armor_timer_desc": "Show armor regeneration cool down timer on bottom of the armor arc",
+
+	"swan_song_intensity": "Swan Song effect intensity",
+	"swan_song_intensity_desc": "Set the intensity of the blue swan song effect",
+
+	"chico_injector_intensity": "Kingpin injector effect intensity",
+	"chico_injector_intensity_desc": "Set the intensity of the orange kingpin injector effect"
 }
