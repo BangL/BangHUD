@@ -2,11 +2,11 @@
 	"name": "BangHUD",
 	"description": "Shows player health and armor as arcs in the middle of the screen",
 	"author": "BangL (code), Takku (arc textures), GREAT BIG BUSHY BEARD a.k.a. Simon (Swan song & kingpin injector effect code & textures)",
-	"version": "0.3",
+	"version": "0.4",
 	"priority": 0,
 	"updates" : [
 		{
-			"revision" : 3,
+			"revision" : 4,
 			"identifier" : "banghud"
 		},
 		{
