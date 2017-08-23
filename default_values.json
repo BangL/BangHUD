@@ -7,5 +7,6 @@
 	"hide_in_stealth": true,
 	"always_show_when_hurt": true,
 	"hide_when_full": true,
-	"fade_out_time": 0.5
+	"fade_out_time": 0.5,
+	"show_armor_timer": true
 }

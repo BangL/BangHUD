@@ -111,6 +111,19 @@
 			"min": 0,
 			"step": 0.1,
 			"default_value": 0.5
+		},
+		{
+			"type": "divider",
+			"size": 16
+		},
+		{
+			"type": "toggle",
+			"id": "show_armor_timer",
+			"title": "show_armor_timer",
+			"description": "show_armor_timer_desc",
+			"callback": "banghud_menu_callback",
+			"value": "show_armor_timer",
+			"default_value": true
 		}
 	]
 }

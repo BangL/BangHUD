@@ -27,5 +27,8 @@
 	"hide_when_full_desc": "Hide the arcs when armor and health is full",
 
 	"fade_out_time": "Fade out time",
-	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings"
+	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings",
+
+	"show_armor_timer": "Show armor timer",
+	"show_armor_timer_desc": "Show armor regeneration cool down timer on bottom of the armor arc"
 }

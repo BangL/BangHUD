@@ -10,7 +10,8 @@ if not BangHUD.setup then
 		["lib/managers/menumanager"] = "MenuManager",
 		["lib/managers/localizationmanager"] = "LocalizationManager",
 		["lib/managers/hudmanagerpd2"] = "HUDManagerPD2",
-		["lib/managers/group_ai_states/groupaistatebase"] = "GroupAIStateBase"
+		["lib/managers/group_ai_states/groupaistatebase"] = "GroupAIStateBase",
+		["lib/units/beings/player/playerdamage"] = "PlayerDamage"
 	}
 
 	function BangHUD:Save()
