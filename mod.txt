@@ -2,11 +2,11 @@
 	"name": "BangHUD",
 	"description": "Shows player health and armor as arcs in the middle of the screen",
 	"author": "BangL\n  Arc textures by Takku\n  Swan song & kingpin injector effect by GREAT BIG BUSHY BEARD a.k.a. Simon",
-	"version": "0.4",
+	"version": "0.5",
 	"priority": 0,
 	"updates" : [
 		{
-			"revision" : 4,
+			"revision" : 5,
 			"identifier" : "banghud"
 		},
 		{
