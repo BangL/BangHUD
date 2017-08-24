@@ -5,6 +5,9 @@ local set_teammate_health_original = HUDManager.set_teammate_health
 local set_teammate_armor_original = HUDManager.set_teammate_armor
 local set_teammate_custom_radial_original = HUDManager.set_teammate_custom_radial
 local set_teammate_ability_radial_original = HUDManager.set_teammate_ability_radial
+local set_teammate_condition_original = HUDManager.set_teammate_condition
+local on_downed_original = HUDManager.on_downed
+local on_arrested_original = HUDManager.on_arrested
 
 function HUDManager:_setup_player_info_hud_pd2(...)
 	_setup_player_info_hud_pd2_original(self, ...)
@@ -23,6 +26,23 @@ function HUDManager:set_teammate_armor(i, data, ...)
 	if i == HUDManager.PLAYER_PANEL then
 		self._hud_banghud:set_armor(data)
 	end
+end
+
+function HUDManager:set_teammate_condition(i, icon_data, ...)
+	set_teammate_condition_original(self, i, icon_data, ...)
+	if i == HUDManager.PLAYER_PANEL then
+		self._hud_banghud:update_status()
+	end
+end
+
+function HUDManager:on_downed(...)
+	on_downed_original(self, ...)
+	self._hud_banghud:update_status()
+end
+
+function HUDManager:on_arrested(...)
+	on_arrested_original(self, ...)
+	self._hud_banghud:update_status()
 end
 
 -- This function was originally written by "GREAT BIG BUSHY BEARD" a.k.a. "Simon".
@@ -51,6 +71,7 @@ function HUDManager:set_teammate_custom_radial(i, data, ...)
 			swan_song_left:set_alpha(BangHUD:GetOption("swan_song_intensity"))
 			local hudinfo = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2)
 			swan_song_left:animate(hudinfo.flash_icon, 4000000000)
+			self._hud_banghud:update_status()
 		else
 			swan_song_left:stop()
 			swan_song_left:set_visible(false)

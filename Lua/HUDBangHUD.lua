@@ -234,11 +234,31 @@ end
 function HUDBangHUD:set_health(data)
 	self._health_data = data
 	self:_update_health()
+	if data.current > 0 and self:_check_player_state() then
+		self._banghud_panel:set_visible(true)
+	end
 end
 
 function HUDBangHUD:set_armor(data)
 	self._armor_data = data
 	self:_update_armor()
+	if data.current > 0 and self:_check_player_state() then
+		self._banghud_panel:set_visible(true)
+	end
+end
+
+function HUDBangHUD:update_status()
+	self._banghud_panel:set_visible(self:_check_player_state())
+end
+
+function HUDBangHUD:_check_player_state()
+	if not managers.player or not managers.player:player_unit() or not managers.player:player_unit():character_damage() or managers.player:player_unit():character_damage().swansong then
+		return false
+	end
+	local state = managers.player:current_state() or "empty"
+	return state ~= "bleed_out" and state ~= "fatal" and state ~= "arrested" and state ~= "incapacitated"
+	-- other possible states are:
+	-- standard, mask_off, tased, clean, civilian, carry, bipod, driving, jerry2, jerry1
 end
 
 function HUDBangHUD:_max_health_reduction()
