@@ -153,6 +153,15 @@
 			"default_value": true
 		},
 		{
+			"type": "toggle",
+			"id": "show_invincibility_timer",
+			"title": "show_invincibility_timer",
+			"description": "show_invincibility_timer_desc",
+			"callback": "banghud_menu_callback",
+			"value": "show_invincibility_timer",
+			"default_value": true
+		},
+		{
 			"type": "divider",
 			"size": 16
 		},
