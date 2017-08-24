@@ -180,6 +180,9 @@ function HUDBangHUD:update_visbility()
 	if hide and BangHUD:GetOption("always_show_when_hurt") and ((self:_health_percentage() < (hide_at_frenzy_cap and (self:_max_health_reduction() - 0.01) or 0.99)) or self:_armor_percentage() < 0.99) then
 		hide = false
 	end
+	if not hide and BangHUD:GetOption("hide_when_armor_full") and self:_armor_percentage() >= 0.99 then
+		hide = true
+	end
 	if not hide then
 		self._banghud_panel:stop()
 		self._banghud_panel:set_alpha(1)

@@ -13,5 +13,6 @@
 	"show_armor_timer": true,
 	"show_anarchist_timer": true,
 	"swan_song_intensity": 1,
-	"chico_injector_intensity": 1
+	"chico_injector_intensity": 1,
+	"hide_when_armor_full": false
 }
