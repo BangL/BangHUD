@@ -26,6 +26,9 @@
 	"hide_when_full": "Hide when full",
 	"hide_when_full_desc": "Hide the arcs when armor and health is full",
 
+	"hide_when_armor_full": "Hide when full armor",
+	"hide_when_armor_full_desc": "Hide the arcs when armor is full, disregarding health",
+
 	"frenzy_relative": "Frenzy relative",
 	"frenzy_relative_desc": "Show the 30% of frenzy as 100% when frenzy is skilled",
 

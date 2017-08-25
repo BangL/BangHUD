@@ -102,6 +102,15 @@
 		},
 		{
 			"type": "toggle",
+			"id": "hide_when_armor_full",
+			"title": "hide_when_armor_full",
+			"description": "hide_when_armor_full_desc",
+			"callback": "banghud_menu_callback",
+			"value": "hide_when_armor_full",
+			"default_value": false
+		},
+		{
+			"type": "toggle",
 			"id": "frenzy_relative",
 			"title": "frenzy_relative",
 			"description": "frenzy_relative_desc",
