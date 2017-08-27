@@ -40,7 +40,7 @@ if not BangHUD.setup then
 	end
 
 	function BangHUD:OptionChanged()
-		BangHUD:Save()
+		self:Save()
 		if managers and managers.hud and managers.hud._hud_banghud then
 			managers.hud._hud_banghud:update()
 		end

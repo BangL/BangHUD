@@ -77,6 +77,17 @@ function HUDBangHUD:init(hud)
 		layer = 2
 	})
 
+	self._invincibility_timer = OutlineText:new(self._banghud_panel, {
+		text = "0.0s",
+		color = Color(1, 0.7, 0),
+		visible = false,
+		align = "right",
+		vertical = "bottom",
+		font = tweak_data.hud_players.name_font,
+		font_size = 22,
+		layer = 2
+	})
+
 	self:update()
 end
 
@@ -121,6 +132,15 @@ function HUDBangHUD:update()
 		self._armor_timer:set_align("left")
 	end
 
+	self._invincibility_timer:set_bottom(self._health_arc:bottom())
+	if swap then
+		self._invincibility_timer:set_left(self._health_arc:left())
+		self._invincibility_timer:set_align("left")
+	else
+		self._invincibility_timer:set_right(self._health_arc:right())
+		self._invincibility_timer:set_align("right")
+	end
+
 	self._armor_arc:set_alpha(alpha)
 	self._health_arc:set_alpha(alpha)
 	self._armor_arc_bg:set_alpha(bg_alpha)
@@ -130,6 +150,7 @@ function HUDBangHUD:update()
 	self:_update_armor()
 
 	self:update_armor_timer(0)
+	self:update_invincibility_timer(0)
 end
 
 function HUDBangHUD:_health_percentage()
@@ -171,6 +192,16 @@ function HUDBangHUD:update_armor_timer(t)
 	end
 end
 
+function HUDBangHUD:update_invincibility_timer(t)
+	if t and t > 0 then
+		t = string.format("%.1f", round(t, 1)) .. "s"
+		self._invincibility_timer:set_text(t)
+		self._invincibility_timer:set_visible(true)
+	elseif self._invincibility_timer:visible() then
+		self._invincibility_timer:set_visible(false)
+	end
+end
+
 function HUDBangHUD:update_visbility()
 	local hide = BangHUD:GetOption("hide_in_stealth") and managers.groupai and managers.groupai:state() and managers.groupai:state():whisper_mode()
 	local hide_at_frenzy_cap = BangHUD:GetOption("hide_at_frenzy_cap") and not BangHUD:GetOption("frenzy_relative")
@@ -206,11 +237,31 @@ end
 function HUDBangHUD:set_health(data)
 	self._health_data = data
 	self:_update_health()
+	if data.current > 0 and self:_check_player_state() then
+		self._banghud_panel:set_visible(true)
+	end
 end
 
 function HUDBangHUD:set_armor(data)
 	self._armor_data = data
 	self:_update_armor()
+	if data.current > 0 and self:_check_player_state() then
+		self._banghud_panel:set_visible(true)
+	end
+end
+
+function HUDBangHUD:update_status()
+	self._banghud_panel:set_visible(self:_check_player_state())
+end
+
+function HUDBangHUD:_check_player_state()
+	if not managers.player or not managers.player:player_unit() or not managers.player:player_unit():character_damage() or managers.player:player_unit():character_damage().swansong then
+		return false
+	end
+	local state = managers.player:current_state() or "empty"
+	return state ~= "bleed_out" and state ~= "fatal" and state ~= "arrested" and state ~= "incapacitated"
+	-- other possible states are:
+	-- standard, mask_off, tased, clean, civilian, carry, bipod, driving, jerry2, jerry1
 end
 
 function HUDBangHUD:_max_health_reduction()

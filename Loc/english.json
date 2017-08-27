@@ -42,7 +42,10 @@
 	"show_armor_timer_desc": "Show regular armor regeneration cool down timer on bottom of the armor arc",
 
 	"show_anarchist_timer": "Show armor timer (Anarchist)",
-	"show_anarchist_timer_desc": "Show anarchist armor regeneration cool down timer on bottom of the armor arc",
+	"show_anarchist_timer_desc": "Show anarchist armor regeneration cool down timer on the bottom of the armor arc",
+
+	"show_invincibility_timer": "Show invincibility timer (Anarchist/Armorer)",
+	"show_invincibility_timer_desc": "Show a timer that indicates how long invincibility will persist on the bottom of the health arc when armor breaks",
 
 	"swan_song_intensity": "Swan Song effect intensity",
 	"swan_song_intensity_desc": "Set the intensity of the blue swan song effect",
