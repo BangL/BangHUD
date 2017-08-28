@@ -1,4 +1,4 @@
-BangHUD:SafeDoFile("OutlineText")
+BangHUD:DoLuaFile("OutlineText")
 
 function round(val, dec)
 	dec = math.pow(10, dec or 0)

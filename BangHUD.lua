@@ -88,16 +88,8 @@ if not BangHUD.setup then
 		end
 	end
 
-	function BangHUD:SafeDoFile(fileName)
-		local fileName = BangHUD._lua_path .. fileName .. ".lua"
-		local success, errorMsg = pcall(function()
-			if io.file_is_readable(fileName) then
-				dofile(fileName)
-			end
-		end)
-		if not success then
-			log(error .. "File: " .. fileName .. "\n" .. errorMsg)
-		end
+	function BangHUD:DoLuaFile(fileName)
+		dofile(BangHUD._lua_path .. fileName .. ".lua")
 	end
 
 	for _, mod in pairs(LuaModManager.Mods) do
@@ -119,6 +111,6 @@ end
 if RequiredScript then
 	local requiredScript = RequiredScript:lower()
 	if BangHUD._hook_files[requiredScript] then
-		BangHUD:SafeDoFile(BangHUD._hook_files[requiredScript])
+		BangHUD:DoLuaFile(BangHUD._hook_files[requiredScript])
 	end
 end

@@ -1,4 +1,4 @@
-BangHUD:SafeDoFile("HUDBangHUD")
+BangHUD:DoLuaFile("HUDBangHUD")
 
 local _setup_player_info_hud_pd2_original = HUDManager._setup_player_info_hud_pd2
 local set_teammate_health_original = HUDManager.set_teammate_health
@@ -28,8 +28,8 @@ function HUDManager:set_teammate_armor(i, data, ...)
 	end
 end
 
-function HUDManager:set_teammate_condition(i, icon_data, ...)
-	set_teammate_condition_original(self, i, icon_data, ...)
+function HUDManager:set_teammate_condition(i, ...)
+	set_teammate_condition_original(self, i, ...)
 	if i == HUDManager.PLAYER_PANEL then
 		self._hud_banghud:update_status()
 	end
