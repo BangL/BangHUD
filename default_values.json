@@ -6,16 +6,13 @@
 	"y_offset": 0,
 	"bars_alpha": 0.35,
 	"background_alpha": 0.3,
-	"hide_in_stealth": true,
-	"always_show_when_hurt": true,
-	"hide_when_full": true,
-	"frenzy_relative": true,
-	"hide_at_frenzy_cap": true,
+	"stealth_behaviour": 2,
+	"loud_behaviour": 2,
+	"frenzy_handling": 2,
 	"fade_out_time": 0.5,
 	"show_armor_timer": true,
 	"show_anarchist_timer": true,
 	"show_invincibility_timer": true,
 	"swan_song_intensity": 1,
-	"chico_injector_intensity": 1,
-	"hide_when_armor_full": false
+	"chico_injector_intensity": 1
 }

@@ -159,7 +159,7 @@ function HUDBangHUD:_health_percentage()
 	local value = 1
 	if self._health_data then
 		value = self._health_data.current / self._health_data.total
-		if BangHUD:GetOption("frenzy_relative") then
+		if BangHUD:GetOption("frenzy_handling") == 2 then
 			value = self._health_data.current / (self._health_data.total * self:_max_health_reduction())
 		end
 	end
@@ -205,16 +205,13 @@ function HUDBangHUD:update_invincibility_timer(t)
 end
 
 function HUDBangHUD:update_visbility()
-	local hide = BangHUD:GetOption("hide_in_stealth") and managers.groupai and managers.groupai:state() and managers.groupai:state():whisper_mode()
-	local hide_at_frenzy_cap = BangHUD:GetOption("hide_at_frenzy_cap") and not BangHUD:GetOption("frenzy_relative")
-	if not hide and BangHUD:GetOption("hide_when_full") and (self:_health_percentage() >= (hide_at_frenzy_cap and (self:_max_health_reduction() - 0.01) or 0.99)) and self:_armor_percentage() >= 0.99 then
-		hide = true
-	end
-	if hide and BangHUD:GetOption("always_show_when_hurt") and ((self:_health_percentage() < (hide_at_frenzy_cap and (self:_max_health_reduction() - 0.01) or 0.99)) or self:_armor_percentage() < 0.99) then
+	local stealth = managers.groupai and managers.groupai:state() and managers.groupai:state():whisper_mode()
+	local behaviour = stealth and BangHUD:GetOption("stealth_behaviour") or BangHUD:GetOption("loud_behaviour")
+	local hide = true
+	if behaviour == 1 then
 		hide = false
-	end
-	if not hide and BangHUD:GetOption("hide_when_armor_full") and self:_armor_percentage() >= 0.99 then
-		hide = true
+	elseif behaviour < 4 then
+		hide = self:_armor_percentage() >= 0.99 and (behaviour == 3 or (self:_health_percentage() >= (BangHUD:GetOption("frenzy_handling") == 3 and (self:_max_health_reduction() - 0.01) or 0.99)))
 	end
 	if not hide then
 		self._banghud_panel:stop()

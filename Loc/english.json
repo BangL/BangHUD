@@ -23,23 +23,22 @@
 	"background_alpha": "Background alpha",
 	"background_alpha_desc": "Transparency of the background line behind the bars",
 
-	"hide_in_stealth": "Hide in stealth",
-	"hide_in_stealth_desc": "Hide the arcs when in stealth",
+	"stealth_behaviour": "Stealth behaviour",
+	"stealth_behaviour_desc": "When to hide when heist is stealth",
 
-	"always_show_when_hurt": "Always show when hurt",
-	"always_show_when_hurt_desc": "Always show the arcs when hurt, even if in stealth\n(does nothing when the above option is disabled)",
+	"loud_behaviour": "Loud behaviour",
+	"loud_behaviour_desc": "When to hide when heist is loud",
 
-	"hide_when_full": "Hide when full",
-	"hide_when_full_desc": "Hide the arcs when armor and health is full",
+	"frenzy_handling": "Frenzy Handling",
+	"frenzy_handling_desc": "How to handle the frenzy skill",
 
-	"hide_when_armor_full": "Hide when full armor",
-	"hide_when_armor_full_desc": "Hide the arcs when armor is full, disregarding health",
-
-	"frenzy_relative": "Frenzy relative",
-	"frenzy_relative_desc": "Show the 30% of frenzy as 100% when frenzy is skilled",
-
-	"hide_at_frenzy_cap": "Hide at frenzy cap",
-	"hide_at_frenzy_cap_desc": "Already hide at 30% when frenzy is skilled\n(does nothing when the above option is enabled)",
+	"always_show": "Always show",
+	"armor_and_health": "Hide at full armor & health",
+	"armor_only": "Hide at full armor",
+	"always_hide": "Always hide",
+	"vanilla_style": "Vanilla style",
+	"frenzy_relative": "Relative (Show 30% as 100%)",
+	"hide_at_frenzy_cap": "Hide at frenzy cap (30%)",
 
 	"fade_out_time": "Fade out time",
 	"fade_out_time_desc": "Time of the fade out animation when the arcs get hidden due to one of the above settings",

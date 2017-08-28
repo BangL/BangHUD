@@ -98,58 +98,47 @@
 			"size": 16
 		},
 		{
-			"type": "toggle",
-			"id": "hide_in_stealth",
-			"title": "hide_in_stealth",
-			"description": "hide_in_stealth_desc",
+			"type": "multiple_choice",
+			"id": "stealth_behaviour",
+			"title": "stealth_behaviour",
+			"description": "stealth_behaviour_desc",
 			"callback": "banghud_menu_callback",
-			"value": "hide_in_stealth",
-			"default_value": true
+			"value": "stealth_behaviour",
+			"items" : [
+				"always_show",
+				"armor_and_health",
+				"armor_only",
+				"always_hide"
+			],
+			"default_value": 2
 		},
 		{
-			"type": "toggle",
-			"id": "always_show_when_hurt",
-			"title": "always_show_when_hurt",
-			"description": "always_show_when_hurt_desc",
+			"type": "multiple_choice",
+			"id": "loud_behaviour",
+			"title": "loud_behaviour",
+			"description": "loud_behaviour_desc",
 			"callback": "banghud_menu_callback",
-			"value": "always_show_when_hurt",
-			"default_value": true
+			"value": "loud_behaviour",
+			"items" : [
+				"always_show",
+				"armor_and_health",
+				"armor_only"
+			],
+			"default_value": 2
 		},
 		{
-			"type": "toggle",
-			"id": "hide_when_full",
-			"title": "hide_when_full",
-			"description": "hide_when_full_desc",
+			"type": "multiple_choice",
+			"id": "frenzy_handling",
+			"title": "frenzy_handling",
+			"description": "frenzy_handling_desc",
 			"callback": "banghud_menu_callback",
-			"value": "hide_when_full",
-			"default_value": true
-		},
-		{
-			"type": "toggle",
-			"id": "hide_when_armor_full",
-			"title": "hide_when_armor_full",
-			"description": "hide_when_armor_full_desc",
-			"callback": "banghud_menu_callback",
-			"value": "hide_when_armor_full",
-			"default_value": false
-		},
-		{
-			"type": "toggle",
-			"id": "frenzy_relative",
-			"title": "frenzy_relative",
-			"description": "frenzy_relative_desc",
-			"callback": "banghud_menu_callback",
-			"value": "frenzy_relative",
-			"default_value": true
-		},
-		{
-			"type": "toggle",
-			"id": "hide_at_frenzy_cap",
-			"title": "hide_at_frenzy_cap",
-			"description": "hide_at_frenzy_cap_desc",
-			"callback": "banghud_menu_callback",
-			"value": "hide_at_frenzy_cap",
-			"default_value": true
+			"value": "frenzy_handling",
+			"items" : [
+				"vanilla_style",
+				"frenzy_relative",
+				"hide_at_frenzy_cap"
+			],
+			"default_value": 2
 		},
 		{
 			"type": "slider",
