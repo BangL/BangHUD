@@ -11,6 +11,12 @@
 	"center_margin": "Center margin",
 	"center_margin_desc": "Center space between the bars",
 
+	"x_offset": "X Offset",
+	"x_offset_desc": "Shift the X positioning (relative to the center)",
+
+	"y_offset": "Y Offset",
+	"y_offset_desc": "Shift the Y positioning (relative to the center)",
+
 	"bars_alpha": "Bars alpha",
 	"bars_alpha_desc": "Transparency of the bars",
 

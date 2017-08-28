@@ -49,6 +49,7 @@ function HUDBangHUD:init(hud)
 		render_template = "VertexColorTexturedRadial",
 		layer = 1
 	})
+
 	self._armor_arc_bg = self._banghud_panel:bitmap({
 		name = "armor_arc_bg",
 		texture = border_texture,
@@ -76,7 +77,6 @@ function HUDBangHUD:init(hud)
 		font_size = 22,
 		layer = 2
 	})
-
 	self._invincibility_timer = OutlineText:new(self._banghud_panel, {
 		text = "0.0s",
 		color = Color(1, 0.7, 0),
@@ -97,6 +97,8 @@ function HUDBangHUD:update()
 	local margin = BangHUD:GetOption("center_margin")
 	local alpha = BangHUD:GetOption("bars_alpha")
 	local bg_alpha = BangHUD:GetOption("background_alpha")
+	local x_offset = BangHUD:GetOption("x_offset")
+	local y_offset = BangHUD:GetOption("y_offset")
 
 	self._armor_arc:set_size(self._texture_sidelen * scale, self._texture_sidelen * scale)
 	self._health_arc:set_size(self._texture_sidelen * scale, self._texture_sidelen * scale)
@@ -104,22 +106,22 @@ function HUDBangHUD:update()
 	self._health_arc_bg:set_size(self._texture_sidelen * scale, self._texture_sidelen * scale)
 
 	if swap then
-		self._health_arc:set_center_x(self._banghud_panel:w() / 2 - margin / 2)
-		self._armor_arc:set_center_x(self._banghud_panel:w() / 2 + margin / 2)
+		self._health_arc:set_center_x(self._banghud_panel:w() / 2 - margin / 2 + x_offset)
+		self._armor_arc:set_center_x(self._banghud_panel:w() / 2 + margin / 2 + x_offset)
 		self._armor_arc:set_texture_rect(self._texture_sidelen, 0, -self._texture_sidelen, self._texture_sidelen)
 		self._health_arc:set_texture_rect(0, 0, self._texture_sidelen, self._texture_sidelen)
 		self._armor_arc_bg:set_texture_rect(self._texture_sidelen, 0, -self._texture_sidelen, self._texture_sidelen)
 		self._health_arc_bg:set_texture_rect(0, 0, self._texture_sidelen, self._texture_sidelen)
 	else
-		self._armor_arc:set_center_x(self._banghud_panel:w() / 2 - margin / 2)
-		self._health_arc:set_center_x(self._banghud_panel:w() / 2 + margin / 2)
+		self._armor_arc:set_center_x(self._banghud_panel:w() / 2 - margin / 2 + x_offset)
+		self._health_arc:set_center_x(self._banghud_panel:w() / 2 + margin / 2 + x_offset)
 		self._health_arc:set_texture_rect(self._texture_sidelen, 0, -self._texture_sidelen, self._texture_sidelen)
 		self._armor_arc:set_texture_rect(0, 0, self._texture_sidelen, self._texture_sidelen)
 		self._health_arc_bg:set_texture_rect(self._texture_sidelen, 0, -self._texture_sidelen, self._texture_sidelen)
 		self._armor_arc_bg:set_texture_rect(0, 0, self._texture_sidelen, self._texture_sidelen)
 	end
-	self._armor_arc:set_center_y(self._banghud_panel:h() / 2)
-	self._health_arc:set_center_y(self._banghud_panel:h() / 2)
+	self._armor_arc:set_center_y(self._banghud_panel:h() / 2 + y_offset)
+	self._health_arc:set_center_y(self._banghud_panel:h() / 2 + y_offset)
 	self._armor_arc_bg:set_center(self._armor_arc:center())
 	self._health_arc_bg:set_center(self._health_arc:center())
 

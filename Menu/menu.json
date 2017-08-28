@@ -42,6 +42,30 @@
 			"default_value": 100
 		},
 		{
+			"type": "slider",
+			"id": "x_offset",
+			"title": "x_offset",
+			"description": "x_offset_desc",
+			"callback": "banghud_menu_callback",
+			"value": "x_offset",
+			"max": 1000,
+			"min": -1000,
+			"step": 1,
+			"default_value": 0
+		},
+		{
+			"type": "slider",
+			"id": "y_offset",
+			"title": "y_offset",
+			"description": "y_offset_desc",
+			"callback": "banghud_menu_callback",
+			"value": "y_offset",
+			"max": 1000,
+			"min": -1000,
+			"step": 1,
+			"default_value": 0
+		},
+		{
 			"type": "divider",
 			"size": 16
 		},

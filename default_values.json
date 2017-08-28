@@ -2,6 +2,8 @@
 	"swap_bars": false,
 	"bars_scale": 1,
 	"center_margin": 100,
+	"x_offset": 0,
+	"y_offset": 0,
 	"bars_alpha": 0.35,
 	"background_alpha": 0.3,
 	"hide_in_stealth": true,
