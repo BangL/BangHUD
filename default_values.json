@@ -14,5 +14,8 @@
 	"show_anarchist_timer": true,
 	"show_invincibility_timer": true,
 	"swan_song_intensity": 1,
-	"chico_injector_intensity": 1
+	"chico_injector_intensity": 1,
+	"show_downs_counter": true,
+	"show_downs_counter_skull": true,
+	"downs_counter_alpha": 0.8
 }

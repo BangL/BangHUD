@@ -56,5 +56,14 @@
 	"swan_song_intensity_desc": "Set the intensity of the blue swan song effect",
 
 	"chico_injector_intensity": "Kingpin injector effect intensity",
-	"chico_injector_intensity_desc": "Set the intensity of the orange kingpin injector effect"
+	"chico_injector_intensity_desc": "Set the intensity of the orange kingpin injector effect",
+
+	"show_downs_counter": "Show downs counter",
+	"show_downs_counter_desc": "Shows your remaining downs above the health bar arc",
+
+	"show_downs_counter_skull": "Show downs counter skull",
+	"show_downs_counter_skull_desc": "Shows a skull in front of your downs counter (if enabled)",
+
+	"downs_counter_alpha": "Downs counter alpha",
+	"downs_counter_alpha_desc": "Set the transparency of the downs counter (if enabled)"
 }

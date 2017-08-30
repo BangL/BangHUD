@@ -1,6 +1,6 @@
 BangHUD:DoLuaFile("OutlineText")
 
-function round(val, dec)
+local function round(val, dec)
 	dec = math.pow(10, dec or 0)
 	val = val * dec
 	val = val >= 0 and math.floor(val + 0.5) or math.ceil(val - 0.5)
@@ -88,6 +88,18 @@ function HUDBangHUD:init(hud)
 		layer = 2
 	})
 
+	self._max_downs = managers.crime_spree:modify_value("PlayerDamage:GetMaximumLives", (Global.game_settings.difficulty == "sm_wish" and 2 or tweak_data.player.damage.LIVES_INIT) + managers.player:upgrade_value("player", "additional_lives", 0)) - 1
+	self._downs = self._max_downs
+	self._downs_counter = OutlineText:new(self._banghud_panel, {
+		text = (BangHUD:GetOption("show_downs_counter_skull") and utf8.char(57364) or "") .. self._downs,
+		color = Color.white,
+		align = "right",
+		vertical = "top",
+		font = tweak_data.hud_players.name_font,
+		font_size = 22,
+		layer = 2
+	})
+
 	self:update()
 end
 
@@ -153,6 +165,16 @@ function HUDBangHUD:update()
 
 	self:update_armor_timer(0)
 	self:update_invincibility_timer(0)
+
+	self:update_downs_counter()
+	self._downs_counter:set_top(self._health_arc:top())
+	if swap then
+		self._downs_counter:set_left(self._health_arc:left())
+		self._downs_counter:set_align("left")
+	else
+		self._downs_counter:set_right(self._health_arc:right())
+		self._downs_counter:set_align("right")
+	end
 end
 
 function HUDBangHUD:_health_percentage()
@@ -204,6 +226,13 @@ function HUDBangHUD:update_invincibility_timer(t)
 	end
 end
 
+function HUDBangHUD:update_downs_counter()
+	self._downs_counter:set_text((BangHUD:GetOption("show_downs_counter_skull") and utf8.char(57364) or "") .. self._downs)
+	self._downs_counter:set_color(math.lerp(Color(1, 1, 0.2, 0), Color.white, math.clamp(self._downs / self._max_downs, 0, 1)))
+	self._downs_counter:set_visible(BangHUD:GetOption("show_downs_counter"))
+	self._downs_counter:set_alpha(BangHUD:GetOption("downs_counter_alpha"))
+end
+
 function HUDBangHUD:update_visbility()
 	local stealth = managers.groupai and managers.groupai:state() and managers.groupai:state():whisper_mode()
 	local behaviour = stealth and BangHUD:GetOption("stealth_behaviour") or BangHUD:GetOption("loud_behaviour")
@@ -238,6 +267,10 @@ function HUDBangHUD:set_health(data)
 	self:_update_health()
 	if data.current > 0 and self:_check_player_state() then
 		self._banghud_panel:set_visible(true)
+	end
+	if data.revives then
+		self._downs = data.revives - 1
+		self:update_downs_counter()
 	end
 end
 

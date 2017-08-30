@@ -52,6 +52,10 @@ function OutlineText:text_rect(...)
 	return 0, 0, w + 2, h + 2 -- take outline size account
 end
 
+function OutlineText:alive(...)
+	return self._panel and self._panel:alive(...)
+end
+
 -------------------------------------------------
 -- TEXT -----------------------------------------
 -------------------------------------------------
@@ -92,15 +96,20 @@ function OutlineText:set_font_size(size, ...)
 	self:_update_size()
 end
 
+function OutlineText:color(...)
+	return self._text:color(...)
+end
+
+function OutlineText:set_color(...)
+	self._text:set_color(...)
+end
+
 function OutlineText:font_color(...)
-	return self._text:font_color(...)
+	return self:color(...)
 end
 
 function OutlineText:set_font_color(...)
-	self._text:set_font_color(...)
-	for i = 1, 4 do
-		self._bgs[i]:set_font_color(...)
-	end
+	self:set_color(...)
 end
 
 -------------------------------------------------
