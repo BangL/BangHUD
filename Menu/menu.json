@@ -1,6 +1,6 @@
 {
 	"menu_id": "BangHUD_options",
-	"parent_menu_id": "lua_mod_options_menu",
+	"parent_menu_id": "blt_options",
 	"title": "BangHUD_options",
 	"description": "BangHUD_options_desc",
 	"items": [
