@@ -5,10 +5,11 @@
 	"contact" : "id/bangl",
 	"version": "0.6",
 	"priority": 0,
+    "image" : "bh.png",
+    "color" : "0.25 0.88 0.82",
 	"blt_version" : 2,
 	"updates" : [
 		{
-			"revision" : 6,
 			"identifier" : "banghud"
 		},
 		{
