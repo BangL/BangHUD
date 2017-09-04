@@ -3,7 +3,7 @@
 	"description": "Shows player health and armor as arcs in the middle of the screen",
 	"author": "BangL\n  Arc textures by Takku\n  Swan song & kingpin injector effect by GREAT BIG BUSHY BEARD a.k.a. Simon",
 	"contact" : "id/bangl",
-	"version": "0.7",
+	"version": "0.8",
 	"priority": 0,
     "image" : "bh.png",
     "color" : "0.25 0.88 0.82",
