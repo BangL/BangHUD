@@ -56,6 +56,27 @@ if not BangHUD.setup then
 		dofile(BangHUD._lua_path .. fileName .. ".lua")
 	end
 
+	function BangHUD:createDirectory(path)
+		if not file.DirectoryExists(path) then
+			if SystemFS and SystemFS.make_dir then
+				SystemFS:make_dir(path) -- windows
+			elseif file and file.CreateDirectory then
+				file.CreateDirectory(path) -- linux
+			end
+		end
+	end
+
+	for _, update in pairs(BLT.Mods:GetMod("BangHUD"):GetUpdates()) do
+		local path = Application:nice_path(update:GetInstallDirectory() .. "/" .. update:GetInstallFolder(), true)
+		local current = ""
+		for folder in string.gmatch(path, "([^/]*)/") do
+			current = current .. folder .. "/"
+			if not file.DirectoryExists(current) then
+				BangHUD:createDirectory(current)
+			end
+		end
+	end
+
 	BangHUD:Load()
 	BangHUD.setup = true
 end
