@@ -52,56 +52,8 @@ if not BangHUD.setup then
 		default_file:close()
 	end
 
-	function BangHUD:createDirectory(path)
-		if not file.DirectoryExists(path) then
-			if SystemFS and SystemFS.make_dir then
-				SystemFS:make_dir(path) -- windows
-			elseif file and file.CreateDirectory then
-				file.CreateDirectory(path) -- linux
-			end
-		end
-	end
-
-	function BangHUD:InitExtraUpdate(definition, path, update)
-		self:createDirectory(update.install_dir)
-		local revPath = ""
-		if update.revision:sub(1, 2) == "./" then
-			revPath = update.revision:sub(3, update.revision:len())
-			local current = ""
-			for folder in string.gmatch(revPath, "([^/]*)/") do
-				current = current .. folder .. "/"
-				self:createDirectory(current)
-			end
-		else
-			local installFolder = update.install_dir .. update.install_folder
-			self:createDirectory(installFolder)
-			revPath = installFolder .. "/" .. update.revision
-		end
-		local rev = io.open(revPath, "r")
-		if not rev then
-			rev = io.open(revPath, "w")
-			if rev then
-				rev:write("0")
-				rev:close()
-				LuaModManager:AddUpdateCheck(definition, path, update)
-			end
-		end
-	end
-
 	function BangHUD:DoLuaFile(fileName)
 		dofile(BangHUD._lua_path .. fileName .. ".lua")
-	end
-
-	for _, mod in pairs(LuaModManager.Mods) do
-		local info = mod.definition
-		if info.name == "BangHUD" then
-			local updates = info.updates or {}
-			for _, update in pairs(updates) do
-				if update.install_folder and update.install_dir then
-					BangHUD:InitExtraUpdate(mod.definition, mod.path, update)
-				end
-			end
-		end
 	end
 
 	BangHUD:Load()

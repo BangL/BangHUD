@@ -13,7 +13,6 @@
 			"identifier" : "banghud"
 		},
 		{
-			"revision" : "revision.txt",
 			"identifier" : "banghud_assets",
 			"install_dir" : "assets/mod_overrides/",
 			"install_folder" : "BangHUD-Assets",
